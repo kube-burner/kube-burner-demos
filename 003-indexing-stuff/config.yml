@@ -1,11 +1,25 @@
 ---
-indexers:
-  - esServers: ["{{.ES_SERVER}}"]                # The elasticsearch endpoint is configured here
-    defaultIndex: kube-burner                    # index name
-    type: elastic                                # local, elasticsearch or opensearch are supported
+metricsEndpoints:
+{{ if .ES_INDEXING }}
+  - endpoint: {{ .PROM_URL }}
+    token: {{ .PROM_TOKEN }}
+    indexer: 
+      type: opensearch
+      esServers: ["{{.ES_SERVER}}"]
+      defaultIndex: {{ .ES_INDEX }}
+    metrics: [metrics.yml]
+{{ end }}
+{{ if .LOCAL_INDEXING }}
+  - endpoint: {{ .PROM_URL }}
+    token: {{ .PROM_TOKEN }}
+    indexer: 
+      type: local
+      metricsDirectory: {{ .METRICS_FOLDER }}
+    metrics: [metrics.yml]
+{{ end }}
+
 global:
   gc: true
-  indexerConfig:
   measurements:
     - name: podLatency
       thresholds:
@@ -34,4 +48,3 @@ jobs:
 
       - objectTemplate: templates/secret.yml
         replicas: 1
-

@@ -1,6 +1,6 @@
 ---
 global:
-  gc: false                      # Garbage collection
+  gc: true                      # Garbage collection
 jobs:
   - name: kube-burner-demo       # job name
     namespace: kube-burner-demo  # namespace prefix

@@ -6,9 +6,18 @@ Run these commands:
 PROM_URL=$(echo https://$(oc get route -n openshift-monitoring prometheus-k8s -o jsonpath={.spec.host}))
 TOKEN=$(oc sa new-token -n openshift-monitoring prometheus-k8s)
 # Local indexing
-kube-burner init -c config-local.yml -m metrics.yml -u ${PROM_URL} -t ${TOKEN}
+# export LOCAL_INDEXING=true
+# export PROM_URL=<prometheus_url>
+# export PROM_TOKEN=<prometheus_token>
+# export METRICS_FOLDER='collected-metrics'
+kube-burner init -c config.yml
 # Elastic indexing
-kube-burner init -c config-elastic.yml -m metrics.yml -u ${PROM_URL} -t ${TOKEN}
+# export ES_INDEXING=true
+# export PROM_URL=<prometheus_url>
+# export PROM_TOKEN=<prometheus_token>
+# export ES_SERVER=<server1,server2>
+# export ES_INDEX='es-index'
+kube-burner init -c config.yml
 ```
 
 Use the index subcommand:

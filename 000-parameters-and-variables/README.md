@@ -16,12 +16,12 @@ Run these commands
 kube-burner init -c config.yml --uuid=demo
 
 # Listing all created namespaces
-oc get ns -l kube-burner-job=kube-burner-demo
-oc get ns -l kube-burner-uuid=demo
+kubectl get ns -l kube-burner-job=kube-burner-demo
+kubectl get ns -l kube-burner-uuid=demo
 # Listing all deployments within a namespace
-oc get deploy -n kube-burner-demo-4
+kubectl get deploy -n kube-burner-demo-0
 # Listing all deployments using a label selector
-oc get deploy -A -l kube-burner-job=kube-burner-demo
+kubectl get deploy -A -l kube-burner-job=kube-burner-demo
 
 # Manually destroy created stuff
 kube-burner destroy --uuid=demo
@@ -33,5 +33,5 @@ kube-burner init -c config.yml
 Demonstrate that all namespaces were garbage collected at the end of the run
 
 ```shell
-oc get ns | grep kube-burner-demo
+kubectl get ns | grep kube-burner-demo
 ```

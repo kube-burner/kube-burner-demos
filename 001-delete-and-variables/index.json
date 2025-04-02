@@ -1,0 +1,29 @@
+{
+    "title": "Delete jobs and variables",
+    "description": "Perform kube-burner Delete jobs and variables",
+    "details": {
+      "intro": {
+        "text": "intro.md"
+      },
+      "steps": [
+        {
+          "title": "Git clone the repository",
+          "text": "step1.md"
+        },
+        {
+          "title": "Download and setup kube-burner",
+          "text": "step2.md"
+        },
+        {
+          "title": "Running basic kube-burner tests",
+          "text": "step3.md"
+        }
+      ],
+      "finish": {
+        "text": "finish.md"
+      }
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-1node"
+    }
+}

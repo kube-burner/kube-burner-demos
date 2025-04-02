@@ -4,7 +4,7 @@ global:
 jobs:
   - name: create-stuff
     namespace: create-stuff
-    jobIterations: 50
+    jobIterations: 1
     qps: 5
     burst: 5
     namespacedIterations: false
@@ -12,7 +12,6 @@ jobs:
     preLoadImages: true
     preLoadPeriod: 10s
     namespaceLabels:
-      security.openshift.io/scc.podSecurityLabelSync: false
       pod-security.kubernetes.io/enforce: privileged
       pod-security.kubernetes.io/audit: privileged
       pod-security.kubernetes.io/warn: privileged

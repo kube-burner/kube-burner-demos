@@ -11,7 +11,7 @@ global:
 jobs:
   - name: kube-burner-demo       # job name
     namespace: kube-burner-demo  # namespace prefix
-    jobIterations: 10            # number of job iterations
+    jobIterations: 1            # number of job iterations
     qps: 5                       # API request rate
     burst: 5
     namespacedIterations: true   # Create a new namespace per job iteration

@@ -1,0 +1,14 @@
+{
+  "name": "kube-burner-demo-backend",
+  "version": "1.0.0",
+  "description": "Backend API for kube-burner developer demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "prom-client": "^15.1.2"
+  }
+}

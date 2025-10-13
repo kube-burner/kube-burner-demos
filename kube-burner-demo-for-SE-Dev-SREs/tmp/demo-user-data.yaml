@@ -1,0 +1,41 @@
+uuid: demo-run-001
+namespacePrefix: app-demo
+appName: movie-night
+backendName: demo-backend
+backendServiceName: demo-backend
+backendReplicas: 1
+# backendScaleReplicas is applied by the kube-burner patch job after the load pause window.
+backendScaleReplicas: 2
+frontendName: demo-frontend
+frontendServiceName: demo-frontend
+frontendReplicas: 1
+loadGeneratorName: demo-load
+loadGeneratorServiceName: demo-load
+loadGeneratorReplicas: 1
+# loadScaleDelay controls how long kube-burner waits after backend scaling before deleting the load generator deployment.
+loadScaleDelay: 30s
+backendImage: kind.local/demo-app-backend:latest
+frontendImage: kind.local/demo-app-frontend:latest
+loadGeneratorImage: kind.local/demo-app-load:latest
+frontendPublicUrl: http://localhost:8081
+loadGeneratorActions: book_ticket,cancel_ticket,give_feedback
+enableLoad: true
+
+# baselinePause is the duration where there is no load.
+# Set BASELINE_PAUSE in .env to override without editing this file directly.
+baselinePause: 20s
+# loadPause is the duration when kube-burner waits while load is applied
+#   (when this time runs out, kube-burner exits).
+# Set LOAD_PAUSE in .env to override.
+loadPause: 30s
+# The remaining 4 metrics are tweakable to design different load profiles,
+#   i.e. trigger load based on desired load numbers.
+# They can also be overridden via the .env -> scripts/sync-load-env.py workflow.
+loadGeneratorBaseRps: "10"
+loadGeneratorRampFactor: "5"
+loadGeneratorRampIntervalSeconds: "5"
+loadGeneratorRunDurationSeconds: "90"
+
+prometheusName: demo-prometheus
+prometheusServiceName: demo-prometheus
+prometheusImage: prom/prometheus:v2.54.0

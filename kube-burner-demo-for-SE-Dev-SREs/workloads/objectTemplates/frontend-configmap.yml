@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .frontendConfigName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .frontendName }}
+data:
+  config.js: |
+    {{ .frontendConfigScript | nindent 4 }}
+    window.__CONTROL_PANEL__ = true;

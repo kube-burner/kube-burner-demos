@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .prometheusServiceName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .prometheusName }}
+spec:
+  selector:
+    app: {{ .prometheusName }}
+  ports:
+    - name: http
+      port: 9090
+      targetPort: 9090
+  type: ClusterIP

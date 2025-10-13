@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .frontendName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .frontendName }}
+spec:
+  replicas: {{ .frontendReplicas | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .frontendName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .frontendName }}
+    spec:
+      containers:
+        - name: frontend
+          image: {{ .frontendImage }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: frontend-config
+              mountPath: /usr/share/nginx/html/config.js
+              subPath: config.js
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 150m
+              memory: 128Mi
+      volumes:
+        - name: frontend-config
+          configMap:
+            name: {{ .frontendConfigName }}

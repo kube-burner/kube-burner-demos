@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kube-burner Interactive Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Kube-burner Movie Night</h1>
+        <p>
+          Trigger actions below to interact with the backend service. When the load
+          generator runs, these counters will climb quickly.
+        </p>
+      </header>
+      <section class="actions">
+        <button data-action="book_ticket">Book Ticket</button>
+        <button data-action="cancel_ticket">Cancel Ticket</button>
+        <button data-action="give_feedback">Give Feedback</button>
+      </section>
+      <section class="status">
+        <h2>Interaction Totals</h2>
+        <ul id="interaction-list"></ul>
+        <div class="summary">
+          <span>Total interactions: <strong id="total-count">0</strong></span>
+          <span>Active sessions: <strong id="active-sessions">0</strong></span>
+        </div>
+      </section>
+      <section class="metrics">
+        <h2>Prometheus Metrics</h2>
+        <p>
+          View metrics at <code><span id="metrics-link"></span></code> from inside the
+          cluster or through port-forwarding.
+        </p>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

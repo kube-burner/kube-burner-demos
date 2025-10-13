@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .backendName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .backendName }}
+spec:
+  replicas: {{ .backendReplicas | default 2 }}
+  selector:
+    matchLabels:
+      app: {{ .backendName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .backendName }}
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+    spec:
+      containers:
+        - name: backend
+          image: {{ .backendImage }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PORT
+              value: "8080"
+            - name: APP_NAME
+              value: {{ .appName }}-backend
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi

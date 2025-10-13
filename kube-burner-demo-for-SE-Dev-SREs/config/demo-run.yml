@@ -1,0 +1,234 @@
+{{- $meta := or (index . "UserMetadata") . -}}
+{{- $uuid := or (index $meta "uuid") (index $meta "UUID") -}}
+{{- $namespacePrefix := or (index $meta "namespacePrefix") "app-demo" -}}
+{{- $namespace := printf "%s-%s" $namespacePrefix $uuid -}}
+{{- $appName := or (index $meta "appName") "kube-burner-demo" -}}
+{{- $enableLoad := or (index $meta "enableLoad") true -}}
+{{- $baselinePause := or (index $meta "baselinePause") "90s" -}}
+{{- $loadPause := or (index $meta "loadPause") "180s" -}}
+{{- $backendImage := index $meta "backendImage" -}}
+{{- $frontendImage := index $meta "frontendImage" -}}
+{{- $loadImage := index $meta "loadGeneratorImage" -}}
+{{- $backendName := or (index $meta "backendName") "app-demo-backend" -}}
+{{- $backendService := or (index $meta "backendServiceName") "app-demo-backend" -}}
+{{- $frontendName := or (index $meta "frontendName") "app-demo-frontend" -}}
+{{- $frontendService := or (index $meta "frontendServiceName") "app-demo-frontend" -}}
+{{- $frontendConfigName := printf "%s-config" $frontendName -}}
+{{- $loadName := or (index $meta "loadGeneratorName") "app-demo-load" -}}
+{{- $loadService := or (index $meta "loadGeneratorServiceName") "app-demo-load" -}}
+{{- $frontendConfigScript := printf "window.__BACKEND_URL__ = '%s';" (or (index $meta "frontendPublicUrl") "http://localhost:8081") -}}
+{{- $backendReplicas := or (index $meta "backendReplicas") 1 -}}
+{{- $frontendReplicas := or (index $meta "frontendReplicas") 1 -}}
+{{- $loadGeneratorReplicas := or (index $meta "loadGeneratorReplicas") 1 -}}
+{{- $loadGeneratorActions := or (index $meta "loadGeneratorActions") "book_ticket,cancel_ticket,give_feedback" -}}
+{{- $loadGeneratorBaseRps := or (index $meta "loadGeneratorBaseRps") "4" -}}
+{{- $loadGeneratorRampFactor := or (index $meta "loadGeneratorRampFactor") "1.35" -}}
+{{- $loadGeneratorRampInterval := or (index $meta "loadGeneratorRampIntervalSeconds") "10" -}}
+{{- $loadGeneratorRunDuration := or (index $meta "loadGeneratorRunDurationSeconds") "600" -}}
+{{- $prometheusName := or (index $meta "prometheusName") "demo-prometheus" -}}
+{{- $prometheusServiceName := or (index $meta "prometheusServiceName") "demo-prometheus" -}}
+{{- $prometheusImage := or (index $meta "prometheusImage") "prom/prometheus:v2.54.0" -}}
+{{- $backendScaleReplicas := or (index $meta "backendScaleReplicas") 2 -}}
+{{- $loadScaleDelay := or (index $meta "loadScaleDelay") "30s" -}}
+
+global:
+  gc: false
+  uuid: {{ $uuid }}
+  measurements:
+    - name: podLatency
+
+jobs:
+  - name: deploy-application
+    jobType: create
+    jobIterations: 1
+    preLoadPeriod: 5s
+    qps: 5
+    burst: 5
+    waitWhenFinished: true
+    cleanup: true
+    namespacedIterations: false
+    namespace: {{ $namespace }}
+    jobPause: {{ $baselinePause }}
+    objects:
+      - objectTemplate: workloads/objectTemplates/backend-deployment.yml
+        kind: Deployment
+        apiVersion: apps/v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          backendName: {{ $backendName }}
+          backendImage: {{ $backendImage }}
+          backendReplicas: {{ $backendReplicas }}
+          appName: {{ $appName }}
+
+      - objectTemplate: workloads/objectTemplates/backend-service.yml
+        kind: Service
+        apiVersion: v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          backendName: {{ $backendName }}
+          backendServiceName: {{ $backendService }}
+
+      - objectTemplate: workloads/objectTemplates/frontend-configmap.yml
+        kind: ConfigMap
+        apiVersion: v1
+        replicas: 1
+        runOnce: true
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          frontendConfigName: {{ $frontendConfigName }}
+          frontendName: {{ $frontendName }}
+          frontendConfigScript: {{ $frontendConfigScript }}
+
+      - objectTemplate: workloads/objectTemplates/frontend-deployment.yml
+        kind: Deployment
+        apiVersion: apps/v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          frontendName: {{ $frontendName }}
+          frontendImage: {{ $frontendImage }}
+          frontendConfigName: {{ $frontendConfigName }}
+          frontendReplicas: {{ $frontendReplicas }}
+
+      - objectTemplate: workloads/objectTemplates/frontend-service.yml
+        kind: Service
+        apiVersion: v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          frontendName: {{ $frontendName }}
+          frontendServiceName: {{ $frontendService }}
+
+      - objectTemplate: workloads/objectTemplates/prometheus-configmap.yml
+        kind: ConfigMap
+        apiVersion: v1
+        replicas: 1
+        runOnce: true
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          prometheusName: {{ $prometheusName }}
+          backendServiceName: {{ $backendService }}
+          backendName: {{ $backendName }}
+          loadGeneratorServiceName: {{ $loadService }}
+          loadGeneratorName: {{ $loadName }}
+
+      - objectTemplate: workloads/objectTemplates/prometheus-deployment.yml
+        kind: Deployment
+        apiVersion: apps/v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          prometheusName: {{ $prometheusName }}
+          prometheusImage: {{ $prometheusImage }}
+          backendServiceName: {{ $backendService }}
+          backendName: {{ $backendName }}
+          loadGeneratorServiceName: {{ $loadService }}
+          loadGeneratorName: {{ $loadName }}
+
+      - objectTemplate: workloads/objectTemplates/prometheus-service.yml
+        kind: Service
+        apiVersion: v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          prometheusServiceName: {{ $prometheusServiceName }}
+          prometheusName: {{ $prometheusName }}
+{{- if $enableLoad }}
+  - name: start-load-generator
+    jobType: create
+    jobIterations: 1
+    preLoadPeriod: 5s
+    qps: 2
+    burst: 2
+    waitWhenFinished: true
+    cleanup: true
+    namespacedIterations: false
+    namespace: {{ $namespace }}
+    jobPause: {{ $loadPause }}
+    objects:
+      - objectTemplate: workloads/objectTemplates/load-generator-deployment.yml
+        kind: Deployment
+        apiVersion: apps/v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          loadGeneratorName: {{ $loadName }}
+          loadGeneratorImage: {{ $loadImage }}
+          loadGeneratorReplicas: "{{ $loadGeneratorReplicas }}"
+          loadGeneratorTargetUrl: {{ printf "http://%s.%s.svc.cluster.local:8080/api/interaction" $backendService $namespace }}
+          loadGeneratorActions: {{ $loadGeneratorActions }}
+          loadGeneratorBaseRps: "{{ $loadGeneratorBaseRps }}"
+          loadGeneratorRampFactor: "{{ $loadGeneratorRampFactor }}"
+          loadGeneratorRampIntervalSeconds: "{{ $loadGeneratorRampInterval }}"
+          loadGeneratorRunDurationSeconds: "{{ $loadGeneratorRunDuration }}"
+
+      - objectTemplate: workloads/objectTemplates/load-generator-service.yml
+        kind: Service
+        apiVersion: v1
+        replicas: 1
+        labelSelector:
+          kube-burner-uuid: {{ $uuid }}
+        inputVars:
+          namespace: {{ $namespace }}
+          loadGeneratorServiceName: {{ $loadService }}
+          loadGeneratorName: {{ $loadName }}
+          appName: {{ $appName }}
+
+  - name: scale-backend
+    jobType: patch
+    jobIterations: 1
+    preLoadPeriod: 0s
+    qps: 1
+    burst: 1
+    waitWhenFinished: true
+    cleanup: true
+    namespacedIterations: false
+    namespace: {{ $namespace }}
+    jobPause: {{ $loadScaleDelay }}
+    objects:
+      - objectTemplate: workloads/objectTemplates/backend-scale-patch.yml
+        apiVersion: apps/v1
+        kind: Deployment
+        patchType: application/merge-patch+json
+        labelSelector:
+          app: {{ $backendName }}
+        inputVars:
+          backendScaleReplicas: {{ $backendScaleReplicas }}
+
+  - name: stop-load-generator
+    jobType: delete
+    jobIterations: 1
+    preLoadPeriod: 0s
+    qps: 1
+    burst: 1
+    waitWhenFinished: true
+    cleanup: true
+    namespacedIterations: false
+    namespace: {{ $namespace }}
+    jobPause: 0s
+    objects:
+      - kind: Deployment
+        apiVersion: apps/v1
+        labelSelector:
+          kube-burner-job: start-load-generator
+{{- end }}

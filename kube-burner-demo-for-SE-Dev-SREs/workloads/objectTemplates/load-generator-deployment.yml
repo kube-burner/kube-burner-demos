@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .loadGeneratorName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .loadGeneratorName }}
+spec:
+  replicas: {{ .loadGeneratorReplicas | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .loadGeneratorName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .loadGeneratorName }}
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "2112"
+    spec:
+      containers:
+        - name: load-generator
+          image: {{ .loadGeneratorImage }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: TARGET_URL
+              value: {{ .loadGeneratorTargetUrl }}
+            - name: ACTIONS
+              value: {{ .loadGeneratorActions }}
+            - name: BASE_RPS
+              value: '{{ .loadGeneratorBaseRps | default "2" }}'
+            - name: RAMP_FACTOR
+              value: '{{ .loadGeneratorRampFactor | default "1.35" }}'
+            - name: RAMP_INTERVAL_SECONDS
+              value: '{{ .loadGeneratorRampIntervalSeconds | default "60" }}'
+            - name: RUN_DURATION_SECONDS
+              value: '{{ .loadGeneratorRunDurationSeconds | default "300" }}'
+            - name: METRICS_PORT
+              value: "2112"
+          ports:
+            - containerPort: 2112
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi

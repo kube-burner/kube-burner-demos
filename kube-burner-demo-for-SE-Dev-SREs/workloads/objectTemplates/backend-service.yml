@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .backendServiceName }}
+  namespace: {{ .namespace }}
+  labels:
+    app: {{ .backendName }}
+spec:
+  selector:
+    app: {{ .backendName }}
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

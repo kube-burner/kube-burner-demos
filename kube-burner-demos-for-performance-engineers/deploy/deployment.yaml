@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pprof-demo
+  namespace: pprof-demo
+  labels:
+    app: pprof-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pprof-demo
+  template:
+    metadata:
+      labels:
+        app: pprof-demo
+    spec:
+      containers:
+        - name: pprof-demo
+          image: kind.local/pprof-demo:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LISTEN_ADDR
+              value: ":8080"
+            - name: WORK_ITERATIONS
+              value: "500"
+            - name: WORK_SLEEP_MS
+              value: "500"
+            - name: BUG_MODE
+              value: "none"
+            - name: BUG_MULTIPLIER
+              value: "0"
+            - name: LEAK_CAP_BYTES
+              value: "67108864"
+          ports:
+            - containerPort: 8080
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10

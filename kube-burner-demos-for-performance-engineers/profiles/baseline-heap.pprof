@@ -1,0 +1,10 @@
+PeriodType: space bytes
+Period: 524288
+Time: 2025-10-07 17:35:30.4876958 -0400 EDT
+Samples:
+alloc_objects/count alloc_space/bytes inuse_objects/count inuse_space/bytes
+Locations
+Mappings
+1: 0x400000/0x69a000/0x0 /pprof-demo  
+2: 0x800000026000/0x800000098000/0x26000 /run/rosetta/rosetta  
+3: 0xffff9ffc0000/0xffff9ffc1000/0x0 [vdso]  

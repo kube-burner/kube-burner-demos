@@ -1,0 +1,315 @@
+PeriodType: cpu nanoseconds
+Period: 10000000
+Time: 2025-10-07 17:36:38.415116762 -0400 EDT
+Duration: 30.2
+Samples:
+samples/count cpu/nanoseconds
+         65  650000000: 1 2 3 4 
+         55  550000000: 5 2 3 4 
+         92  920000000: 6 7 3 4 
+         11  110000000: 8 7 3 4 
+        101 1010000000: 9 7 3 4 
+         41  410000000: 10 7 3 4 
+          9   90000000: 11 7 3 4 
+         18  180000000: 12 7 3 4 
+         41  410000000: 13 3 4 
+         12  120000000: 14 3 4 
+         34  340000000: 15 2 3 4 
+         32  320000000: 16 7 3 4 
+         77  770000000: 17 2 3 4 
+          1   10000000: 18 7 3 4 
+         17  170000000: 19 7 3 4 
+         79  790000000: 20 2 3 4 
+         52  520000000: 21 2 3 4 
+         18  180000000: 22 7 3 4 
+         56  560000000: 23 2 3 4 
+         66  660000000: 24 7 3 4 
+         70  700000000: 25 3 4 
+         34  340000000: 26 7 3 4 
+         59  590000000: 27 7 3 4 
+         15  150000000: 28 7 3 4 
+         45  450000000: 29 2 3 4 
+         32  320000000: 30 2 3 4 
+         23  230000000: 31 7 3 4 
+         49  490000000: 32 7 3 4 
+         34  340000000: 33 2 3 4 
+          1   10000000: 34 2 3 4 
+         18  180000000: 35 7 3 4 
+         42  420000000: 36 2 3 4 
+         48  480000000: 37 7 3 4 
+         32  320000000: 38 2 3 4 
+          3   30000000: 39 3 4 
+         45  450000000: 40 7 3 4 
+        106 1060000000: 41 7 3 4 
+         52  520000000: 42 7 3 4 
+         48  480000000: 43 7 3 4 
+          2   20000000: 44 7 3 4 
+         25  250000000: 45 7 3 4 
+         10  100000000: 46 7 3 4 
+         10  100000000: 47 2 3 4 
+        117 1170000000: 48 2 3 4 
+         83  830000000: 49 2 3 4 
+         60  600000000: 50 2 3 4 
+          4   40000000: 51 7 3 4 
+         19  190000000: 52 7 3 4 
+         32  320000000: 53 7 3 4 
+        145 1450000000: 54 2 3 4 
+         14  140000000: 55 7 3 4 
+         21  210000000: 56 7 3 4 
+          8   80000000: 57 3 4 
+          5   50000000: 58 3 4 
+         45  450000000: 59 7 3 4 
+         12  120000000: 60 2 3 4 
+         49  490000000: 61 2 3 4 
+         13  130000000: 62 3 4 
+          4   40000000: 63 3 4 
+         18  180000000: 64 7 3 4 
+         10  100000000: 65 2 3 4 
+         31  310000000: 66 7 3 4 
+         15  150000000: 67 2 3 4 
+         35  350000000: 68 7 3 4 
+         38  380000000: 69 7 3 4 
+         15  150000000: 70 3 4 
+         18  180000000: 71 3 4 
+          6   60000000: 72 7 3 4 
+         34  340000000: 73 7 3 4 
+         15  150000000: 74 2 3 4 
+         15  150000000: 75 7 3 4 
+          4   40000000: 76 7 3 4 
+          8   80000000: 77 2 3 4 
+          9   90000000: 78 2 3 4 
+         11  110000000: 79 7 3 4 
+          1   10000000: 80 7 3 4 
+         27  270000000: 81 7 3 4 
+          1   10000000: 82 3 4 
+         23  230000000: 83 3 4 
+         44  440000000: 84 2 3 4 
+         15  150000000: 85 3 4 
+         26  260000000: 86 3 4 
+         10  100000000: 87 7 3 4 
+          7   70000000: 88 3 4 
+         11  110000000: 89 2 3 4 
+          4   40000000: 90 3 4 
+         14  140000000: 91 7 3 4 
+          6   60000000: 92 7 3 4 
+         12  120000000: 93 7 3 4 
+          1   10000000: 94 7 3 4 
+          1   10000000: 95 3 4 
+          6   60000000: 96 2 3 4 
+          1   10000000: 97 3 4 
+          8   80000000: 98 2 3 4 
+         14  140000000: 99 7 3 4 
+          4   40000000: 100 3 4 
+          2   20000000: 101 2 3 4 
+          4   40000000: 102 3 4 
+          6   60000000: 103 3 4 
+         14  140000000: 104 2 3 4 
+         23  230000000: 105 3 4 
+         11  110000000: 106 7 3 4 
+          5   50000000: 107 3 4 
+          5   50000000: 108 2 3 4 
+          9   90000000: 109 3 4 
+          1   10000000: 110 111 112 113 114 115 116 
+          1   10000000: 117 118 119 
+          6   60000000: 120 2 3 4 
+         13  130000000: 121 2 3 4 
+          5   50000000: 122 2 3 4 
+          4   40000000: 123 2 3 4 
+          3   30000000: 124 7 3 4 
+         11  110000000: 125 2 3 4 
+          1   10000000: 126 3 4 
+          2   20000000: 127 2 3 4 
+          3   30000000: 128 2 3 4 
+          2   20000000: 129 7 3 4 
+          2   20000000: 130 7 3 4 
+          2   20000000: 131 2 3 4 
+          2   20000000: 132 7 3 4 
+          4   40000000: 133 7 3 4 
+          2   20000000: 134 7 3 4 
+          1   10000000: 135 3 4 
+          1   10000000: 136 7 3 4 
+          3   30000000: 137 7 3 4 
+          2   20000000: 138 3 4 
+          1   10000000: 139 2 3 4 
+          3   30000000: 140 7 3 4 
+          1   10000000: 141 3 4 
+          1   10000000: 142 143 144 145 146 147 148 149 
+          2   20000000: 150 3 4 
+          5   50000000: 151 3 4 
+          3   30000000: 152 3 4 
+          2   20000000: 153 2 3 4 
+          1   10000000: 154 3 4 
+          4   40000000: 155 7 3 4 
+          1   10000000: 156 7 3 4 
+Locations
+     1: 0x497f93 M=1 math.cos math/sin.go:151:0 s=125
+     2: 0x697d9d M=1 math.Cos math/sin.go:122:0 s=118
+             main.performComputation pprofdemo/main.go:130:0 s=108
+     3: 0x697667 M=1 main.runWorkOnce pprofdemo/main.go:95:0 s=93
+     4: 0x697314 M=1 main.workerLoop pprofdemo/main.go:82:0 s=76
+     5: 0x498007 M=1 math.cos math/sin.go:158:0 s=125
+     6: 0x498378 M=1 math.sin math/sin.go:243:0 s=192
+     7: 0x697d8c M=1 math.Sin math/sin.go:189:0 s=185
+             main.performComputation pprofdemo/main.go:130:0 s=108
+     8: 0x49831e M=1 math.sin math/sin.go:238:0 s=192
+     9: 0x498282 M=1 math.sin math/sin.go:208:0 s=192
+    10: 0x49825a M=1 math.sin math/sin.go:227:0 s=192
+    11: 0x4981d7 M=1 math.sin math/sin.go:219:0 s=192
+    12: 0x4982bd M=1 math.sin math/sin.go:236:0 s=192
+    13: 0x697d4f M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+    14: 0x697d18 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    15: 0x4980e0 M=1 math.cos math/sin.go:172:0 s=125
+    16: 0x4982a0 M=1 math.sin math/sin.go:235:0 s=192
+    17: 0x497f28 M=1 math.cos math/sin.go:143:0 s=125
+    18: 0x498370 M=1 math.sin math/sin.go:243:0 s=192
+    19: 0x498181 M=1 math.sin math/sin.go:208:0 s=192
+    20: 0x497ee6 M=1 math.IsInf math/bits.go:51:0 s=46
+             math.cos math/sin.go:133:0 s=125
+    21: 0x497ec0 M=1 math.cos math/sin.go:125:0 s=125
+    22: 0x4982a6 M=1 math.sin math/sin.go:236:0 s=192
+    23: 0x497fa4 M=1 math.cos math/sin.go:152:0 s=125
+    24: 0x4981a0 M=1 math.sin math/sin.go:215:0 s=192
+    25: 0x697dd7 M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+    26: 0x498233 M=1 math.sin math/sin.go:227:0 s=192
+    27: 0x498139 M=1 math.sin math/sin.go:200:0 s=192
+    28: 0x4982c9 M=1 math.sin math/sin.go:236:0 s=192
+    29: 0x497ed2 M=1 math.IsNaN math/bits.go:39:0 s=34
+             math.cos math/sin.go:133:0 s=125
+    30: 0x497ff7 M=1 math.cos math/sin.go:162:0 s=125
+    31: 0x49813d M=1 math.IsNaN math/bits.go:39:0 s=34
+             math.sin math/sin.go:200:0 s=192
+    32: 0x49821b M=1 math.sin math/sin.go:224:0 s=192
+    33: 0x497ec4 M=1 math.cos math/sin.go:125:0 s=125
+    34: 0x497ffa M=1 math.cos math/sin.go:162:0 s=125
+    35: 0x4982f9 M=1 math.sin math/sin.go:236:0 s=192
+    36: 0x498012 M=1 math.cos math/sin.go:166:0 s=125
+    37: 0x4981c0 M=1 math.sin math/sin.go:218:0 s=192
+    38: 0x4980ce M=1 math.cos math/sin.go:170:0 s=125
+    39: 0x697dbd M=1 main.performComputation pprofdemo/main.go:123:0 s=108
+    40: 0x498360 M=1 math.sin math/sin.go:240:0 s=192
+    41: 0x498120 M=1 math.sin math/sin.go:192:0 s=192
+    42: 0x498157 M=1 math.IsInf math/bits.go:51:0 s=46
+             math.sin math/sin.go:202:0 s=192
+    43: 0x49834e M=1 math.sin math/sin.go:238:0 s=192
+    44: 0x49835a M=1 math.sin math/sin.go:238:0 s=192
+    45: 0x49832a M=1 math.sin math/sin.go:238:0 s=192
+    46: 0x4982e9 M=1 math.sin math/sin.go:236:0 s=192
+    47: 0x497ef0 M=1 math.IsInf math/bits.go:51:0 s=46
+             math.cos math/sin.go:133:0 s=125
+    48: 0x4980f8 M=1 math.cos math/sin.go:175:0 s=125
+    49: 0x498001 M=1 math.cos math/sin.go:162:0 s=125
+    50: 0x497f46 M=1 math.cos math/sin.go:146:0 s=125
+    51: 0x498356 M=1 math.sin math/sin.go:238:0 s=192
+    52: 0x498336 M=1 math.sin math/sin.go:238:0 s=192
+    53: 0x498204 M=1 math.sin math/sin.go:222:0 s=192
+    54: 0x497ffe M=1 math.cos math/sin.go:158:0 s=125
+    55: 0x498292 M=1 math.sin math/sin.go:234:0 s=192
+    56: 0x4982e1 M=1 math.sin math/sin.go:236:0 s=192
+    57: 0x697d29 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    58: 0x697da8 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    59: 0x498165 M=1 math.sin math/sin.go:202:0 s=192
+    60: 0x497fef M=1 math.cos math/sin.go:159:0 s=125
+    61: 0x497ef4 M=1 math.cos math/sin.go:133:0 s=125
+    62: 0x697d1b M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    63: 0x697d2c M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    64: 0x498342 M=1 math.sin math/sin.go:238:0 s=192
+    65: 0x498069 M=1 math.cos math/sin.go:168:0 s=125
+    66: 0x498124 M=1 math.sin math/sin.go:192:0 s=192
+    67: 0x497fcc M=1 math.cos math/sin.go:155:0 s=125
+    68: 0x498243 M=1 math.sin math/sin.go:227:0 s=192
+    69: 0x49820a M=1 math.sin math/sin.go:223:0 s=192
+    70: 0x697d83 M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+    71: 0x697d02 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    72: 0x498141 M=1 math.sin math/sin.go:200:0 s=192
+    73: 0x49817d M=1 math.sin math/sin.go:208:0 s=192
+    74: 0x4980e4 M=1 math.cos math/sin.go:173:0 s=125
+    75: 0x49830b M=1 math.sin math/sin.go:238:0 s=192
+    76: 0x4982dd M=1 math.sin math/sin.go:236:0 s=192
+    77: 0x497ed8 M=1 math.cos math/sin.go:133:0 s=125
+    78: 0x497f42 M=1 math.cos math/sin.go:146:0 s=125
+    79: 0x4982d5 M=1 math.sin math/sin.go:236:0 s=192
+    80: 0x498256 M=1 math.sin math/sin.go:208:0 s=192
+    81: 0x498285 M=1 math.sin math/sin.go:230:0 s=192
+    82: 0x697d0b M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+    83: 0x697d6d M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    84: 0x497f8d M=1 math.cos math/sin.go:150:0 s=125
+    85: 0x697d74 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    86: 0x697d59 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    87: 0x4982ed M=1 math.sin math/sin.go:236:0 s=192
+    88: 0x697d1e M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    89: 0x4980c2 M=1 math.cos math/sin.go:170:0 s=125
+    90: 0x697d5c M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    91: 0x49828b M=1 math.sin math/sin.go:231:0 s=192
+    92: 0x498312 M=1 math.sin math/sin.go:238:0 s=192
+    93: 0x498223 M=1 math.sin math/sin.go:227:0 s=192
+    94: 0x498377 M=1 math.sin math/sin.go:243:0 s=192
+    95: 0x697de0 M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+    96: 0x4980b6 M=1 math.cos math/sin.go:170:0 s=125
+    97: 0x697d63 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+    98: 0x497fdb M=1 math.cos math/sin.go:155:0 s=125
+    99: 0x498143 M=1 math.sin math/sin.go:200:0 s=192
+   100: 0x697d88 M=1 math.Sin math/sin.go:189:0 s=185
+             main.performComputation pprofdemo/main.go:130:0 s=108
+   101: 0x498051 M=1 math.cos math/sin.go:168:0 s=125
+   102: 0x697d9e M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   103: 0x697dcd M=1 main.performComputation pprofdemo/main.go:129:0 s=108
+   104: 0x4980f0 M=1 math.cos math/sin.go:175:0 s=125
+   105: 0x697d39 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   106: 0x498289 M=1 math.sin math/sin.go:230:0 s=192
+   107: 0x697d79 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   108: 0x4980f7 M=1 math.cos math/sin.go:175:0 s=125
+   109: 0x697dc5 M=1 main.performComputation pprofdemo/main.go:124:0 s=108
+   110: 0x43a700 M=1 runtime.suspendG runtime/preempt.go:104:0 s=104
+   111: 0x41f1c8 M=1 runtime.markroot.func1 runtime/mgcmark.go:233:0 s=215
+   112: 0x41ee87 M=1 runtime.markroot runtime/mgcmark.go:215:0 s=164
+   113: 0x421053 M=1 runtime.gcDrain runtime/mgcmark.go:1200:0 s=1163
+   114: 0x41d4ae M=1 runtime.gcDrainMarkWorkerIdle runtime/mgcmark.go:1114:0 s=1113
+             runtime.gcBgMarkWorker.func2 runtime/mgc.go:1406:0 s=1370
+   115: 0x470e69 M=1 runtime.systemstack runtime/asm_amd64.s:509:0 s=478
+   116: 0x41d171 M=1 runtime.gcBgMarkWorker runtime/mgc.go:1370:0 s=1276
+   117: 0x426140 M=1 runtime.(*mheap).nextSpanForSweep runtime/mgcsweep.go:98:0 s=98
+   118: 0x42686c M=1 runtime.sweepone runtime/mgcsweep.go:372:0 s=353
+   119: 0x42669e M=1 runtime.bgsweep runtime/mgcsweep.go:299:0 s=271
+   120: 0x497fac M=1 math.cos math/sin.go:155:0 s=125
+   121: 0x498020 M=1 math.cos math/sin.go:167:0 s=125
+   122: 0x497fbc M=1 math.cos math/sin.go:155:0 s=125
+   123: 0x49805d M=1 math.cos math/sin.go:168:0 s=125
+   124: 0x498135 M=1 math.sin math/sin.go:200:0 s=192
+   125: 0x497f60 M=1 math.cos math/sin.go:147:0 s=125
+   126: 0x697d25 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   127: 0x497fe0 M=1 math.cos math/sin.go:155:0 s=125
+   128: 0x498024 M=1 math.cos math/sin.go:167:0 s=125
+   129: 0x49828e M=1 math.sin math/sin.go:232:0 s=192
+   130: 0x498132 M=1 math.sin math/sin.go:200:0 s=192
+   131: 0x497ff3 M=1 math.cos math/sin.go:158:0 s=125
+   132: 0x498299 M=1 math.sin math/sin.go:235:0 s=192
+   133: 0x4981da M=1 math.sin math/sin.go:219:0 s=192
+   134: 0x498252 M=1 math.sin math/sin.go:227:0 s=192
+   135: 0x697d60 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   136: 0x4982d1 M=1 math.sin math/sin.go:236:0 s=192
+   137: 0x49829d M=1 math.sin math/sin.go:235:0 s=192
+   138: 0x697d3e M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   139: 0x49809e M=1 math.cos math/sin.go:170:0 s=125
+   140: 0x49833e M=1 math.sin math/sin.go:238:0 s=192
+   141: 0x697d52 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   142: 0x474ac3 M=1 runtime.futex runtime/sys_linux_amd64.s:558:0 s=549
+   143: 0x4362ef M=1 runtime.futexwakeup runtime/os_linux.go:82:0 s=81
+   144: 0x40cb04 M=1 runtime.notewakeup runtime/lock_futex.go:155:0 s=149
+   145: 0x441048 M=1 runtime.startm runtime/proc.go:2895:0 s=2809
+   146: 0x44156b M=1 runtime.wakep runtime/proc.go:3006:0 s=2975
+   147: 0x444152 M=1 runtime.goschedImpl runtime/proc.go:4062:0 s=4039
+   148: 0x4554d0 M=1 runtime.gopreempt_m runtime/proc.go:4082:0 s=4081
+             runtime.newstack runtime/stack.go:1070:0 s=962
+   149: 0x470f79 M=1 runtime.morestack runtime/asm_amd64.s:616:0 s=575
+   150: 0x697d22 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   151: 0x697cf9 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   152: 0x697d33 M=1 main.performComputation pprofdemo/main.go:130:0 s=108
+   153: 0x497fd8 M=1 math.cos math/sin.go:154:0 s=125
+   154: 0x697d8d M=1 math.Sin math/sin.go:189:0 s=185
+             main.performComputation pprofdemo/main.go:130:0 s=108
+   155: 0x49834a M=1 math.sin math/sin.go:238:0 s=192
+   156: 0x4982f5 M=1 math.sin math/sin.go:236:0 s=192
+Mappings
+1: 0x400000/0x69a000/0x0 /pprof-demo  [FN]
+2: 0x800000026000/0x800000098000/0x26000 /run/rosetta/rosetta  
+3: 0xffff8cd48000/0xffff8cd49000/0x0 [vdso]  

@@ -1,0 +1,17 @@
+FROM --platform=$BUILDPLATFORM golang:1.22 AS builder
+
+WORKDIR /src
+COPY go.mod ./
+COPY main.go ./
+
+RUN --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=cache,target=/go/pkg/mod \
+    CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH:-amd64} \
+    go build -trimpath -o /out/pprof-demo .
+
+FROM alpine:3.19
+WORKDIR /
+RUN apk add --no-cache ca-certificates curl
+COPY --from=builder /out/pprof-demo /pprof-demo
+EXPOSE 8080
+ENTRYPOINT ["/pprof-demo"]

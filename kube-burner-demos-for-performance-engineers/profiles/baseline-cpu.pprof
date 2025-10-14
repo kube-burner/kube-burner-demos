@@ -1,0 +1,50 @@
+PeriodType: cpu nanoseconds
+Period: 10000000
+Time: 2025-10-07 17:35:30.48900855 -0400 EDT
+Duration: 30.0
+Samples:
+samples/count cpu/nanoseconds
+          1   10000000: 1 2 3 4 5 6 7 8 9 10 
+          1   10000000: 11 12 13 14 15 16 17 18 19 
+          1   10000000: 20 21 22 23 
+          1   10000000: 24 25 26 27 28 29 
+Locations
+     1: 0x4598f3 M=1 runtime.findfunc runtime/symtab.go:791:0 s=771
+     2: 0x467964 M=1 runtime.isSystemGoroutine runtime/traceback.go:1321:0 s=1319
+     3: 0x445fb7 M=1 runtime.newproc1 runtime/proc.go:4936:0 s=4892
+     4: 0x445dfe M=1 runtime.newproc.func1 runtime/proc.go:4878:0 s=4877
+     5: 0x470e69 M=1 runtime.systemstack runtime/asm_amd64.s:509:0 s=478
+     6: 0x445daa M=1 runtime.newproc runtime/proc.go:4877:0 s=4874
+     7: 0x64a233 M=1 net/http.(*Server).Serve net/http/server.go:3290:0 s=3230
+     8: 0x649d50 M=1 net/http.(*Server).ListenAndServe net/http/server.go:3189:0 s=3177
+     9: 0x696fbe M=1 net/http.ListenAndServe net/http/server.go:3443:0 s=3441
+             main.main pprofdemo/main.go:71:0 s=51
+    10: 0x43c33c M=1 runtime.main runtime/proc.go:271:0 s=146
+    11: 0x63cfc0 M=1 net/http.firstSegment net/http/routing_tree.go:203:0 s=203
+    12: 0x63cb73 M=1 net/http.(*routingNode).matchPath net/http/routing_tree.go:167:0 s=152
+    13: 0x63c97b M=1 net/http.(*routingNode).matchMethodAndPath net/http/routing_tree.go:145:0 s=130
+    14: 0x63c733 M=1 net/http.(*routingNode).match net/http/routing_tree.go:124:0 s=115
+    15: 0x6482c7 M=1 net/http.(*ServeMux).matchOrRedirect net/http/server.go:2583:0 s=2579
+    16: 0x647c86 M=1 net/http.(*ServeMux).findHandler net/http/server.go:2543:0 s=2517
+    17: 0x648be6 M=1 net/http.(*ServeMux).ServeHTTP net/http/server.go:2686:0 s=2674
+    18: 0x649c8d M=1 net/http.serverHandler.ServeHTTP net/http/server.go:3142:0 s=3133
+    19: 0x645a07 M=1 net/http.(*conn).serve net/http/server.go:2044:0 s=1893
+    20: 0x497f0c M=1 math.Float64bits math/unsafe.go:23:0 s=23
+             math.Abs math/abs.go:14:0 s=13
+             math.cos math/sin.go:139:0 s=125
+    21: 0x697935 M=1 math.Cos math/sin.go:122:0 s=118
+             main.performComputation pprofdemo/main.go:119:0 s=108
+    22: 0x697667 M=1 main.runWorkOnce pprofdemo/main.go:95:0 s=93
+    23: 0x697314 M=1 main.workerLoop pprofdemo/main.go:82:0 s=76
+    24: 0x46df2f M=1 internal/poll.runtime_pollSetDeadline runtime/netpoll.go:446:0 s=366
+    25: 0x4c15f9 M=1 internal/poll.setDeadlineImpl internal/poll/fd_poll_runtime.go:161:0 s=146
+    26: 0x5804a7 M=1 internal/poll.(*FD).SetReadDeadline internal/poll/fd_poll_runtime.go:138:0 s=137
+             net.(*netFD).SetReadDeadline net/fd_posix.go:142:0 s=141
+             net.(*conn).SetReadDeadline net/net.go:252:0 s=248
+    27: 0x63fc05 M=1 net/http.(*connReader).abortPendingRead net/http/server.go:727:0 s=720
+    28: 0x644da6 M=1 net/http.(*response).finishRequest net/http/server.go:1676:0 s=1664
+    29: 0x645a4a M=1 net/http.(*conn).serve net/http/server.go:2050:0 s=1893
+Mappings
+1: 0x400000/0x69a000/0x0 /pprof-demo  [FN]
+2: 0x800000026000/0x800000098000/0x26000 /run/rosetta/rosetta  
+3: 0xffff9ffc0000/0xffff9ffc1000/0x0 [vdso]  
